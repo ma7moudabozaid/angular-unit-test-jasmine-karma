@@ -20,14 +20,11 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategory();
-    // console.log(this.categories);
   }
 
   getCategory() {
-    return this.categoryService.get().subscribe((response: any) => {
-      if (response) {
-        this.categories = response.categories;
-      }
+    return this.categoryService.get().subscribe((response: Category[]) => {
+      this.categories = response;
     });
   }
 
@@ -66,15 +63,13 @@ export class CategoryComponent implements OnInit {
   delete(item: Category) {
     console.log(item);
 
-    return this.categoryService
-      .delete(item._id)
-      .subscribe((response: any) => {
-        if (response) {
-          // this.sharedService.toastrSuccess(response.Message);
-          // this.Departments = this.Departments.filter((x: any) => x !== item);
-        } else {
-          // this.sharedService.toastrError('Error');
-        }
-      });
+    return this.categoryService.delete(item._id).subscribe((response: any) => {
+      if (response) {
+        // this.sharedService.toastrSuccess(response.Message);
+        // this.Departments = this.Departments.filter((x: any) => x !== item);
+      } else {
+        // this.sharedService.toastrError('Error');
+      }
+    });
   }
 }
