@@ -1,5 +1,4 @@
-# mz-angular14-unit-test
-# NgApp
+# angular-unit-test-jasmine-karma
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
