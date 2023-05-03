@@ -23,8 +23,8 @@ export class CategoryComponent implements OnInit {
   }
 
   getCategory() {
-    return this.categoryService.get().subscribe((response: Category[]) => {
-      this.categories = response;
+    return this.categoryService.get().subscribe((response: any) => {
+      this.categories = response.categories;
     });
   }
 

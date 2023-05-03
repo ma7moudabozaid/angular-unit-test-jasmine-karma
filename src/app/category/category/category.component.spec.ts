@@ -1,5 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { CategoryService } from '../../services/category.service';
 
@@ -16,21 +18,24 @@ describe('CategoryComponent', () => {
   ];
 
   beforeEach(async () => {
-    categoryServiceSpy = jasmine.createSpyObj<CategoryService>([
+    const categoryServiceSpy = jasmine.createSpyObj<CategoryService>([
       'get',
       'delete',
     ]);
-
     await TestBed.configureTestingModule({
       declarations: [CategoryComponent],
       imports: [HttpClientTestingModule],
       providers: [{ provide: CategoryService, useValue: categoryServiceSpy }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(CategoryComponent);
     component = fixture.componentInstance;
     // fixture.detectChanges();
-  });
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -41,5 +46,9 @@ describe('CategoryComponent', () => {
     fixture.detectChanges();
     component.getCategory();
     expect(component.categories).toEqual(categoryMock);
+  });
+
+  it('shoud have a link', () => {
+    expect(fixture.debugElement.queryAll(By.css('a')).length).toBe(1);
   });
 });

@@ -1,0 +1,20 @@
+.navbar {
+  background-color: #fff;
+  box-shadow: 1px 1px 2px 1px #d1d1d1;
+  padding: 10px;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    justify-content: end;
+  }
+}
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 700;
+}
+.nav-link {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+}

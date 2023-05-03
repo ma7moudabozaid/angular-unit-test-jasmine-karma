@@ -12,6 +12,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
 import { ModalDeleteComponent } from './components/modal-delete/modal-delete.component';
 import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './posts/posts.component';
 
 
 @NgModule({
@@ -22,11 +23,11 @@ import { HomeComponent } from './home/home.component';
     AddCategoryComponent,
     ModalDeleteComponent,
     HomeComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
